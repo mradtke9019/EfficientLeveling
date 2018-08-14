@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace EfficientLeveling
 {
-    public partial class Form1 : Form
+    public partial class Window : Form
     {
-        public Form1()
+        public Window()
         {
             InitializeComponent();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            //this.
         }
     }
 }

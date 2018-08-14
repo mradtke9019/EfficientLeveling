@@ -1,0 +1,207 @@
+﻿{
+  "Name": "Altair",
+  "Level": 1,
+  "MajorSkillIncreases": 0,
+  "MinorSkillIncreases": 0,
+  "CanLevelUp": false,
+  "Attributes": [
+    {
+      "Name": "Strength",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+        {
+          "Name": "Blade",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Blunt",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Hand-To-Hand",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+      ]
+    },
+    {
+      "Name": "Intelligence",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+        {
+          "Name": "Conjuration",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Alchemy",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Mysticism",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+      ]
+    },
+    {
+      "Name": "Willpower",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+        {
+          "Name": "Alteration",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Destruction",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Restoration",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+      ]
+    },
+    {
+
+      "Name": "Agility",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+        {
+          "Name": "Security",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Sneak",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Marksman",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+
+      ]
+    },
+    {
+      "Name": "Speed",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+
+        {
+          "Name": "Athletics",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Acrobatics",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Light Armor",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+
+      ]
+    },
+    {
+      "Name": "Endurance",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+        {
+          "Name": "Armorer",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Block",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Heavy Armor",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+
+      ]
+    },
+    {
+
+      "Name": "Personality",
+      "Level": 50,
+      "SkillIncreases": 0,
+      "ExpectedIncrease": 0,
+      "Skills": [
+        {
+          "Name": "Mercantile",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Speechcraft",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        },
+        {
+          "Name": "Illusion",
+          "Level": 20,
+          "IsMajor": false,
+          "IncreasesThisLevel": 0
+        }
+
+      ]
+    },
+    {
+
+      "Name": "Luck",
+      "Level": 50,
+      "ExpectedIncrease": 0,
+      "Skills": [
+      ]
+    }
+
+  ]
+}
