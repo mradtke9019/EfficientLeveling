@@ -84,7 +84,6 @@
       ]
     },
     {
-
       "Name": "Agility",
       "Level": 50,
       "SkillIncreases": 0,
@@ -108,7 +107,6 @@
           "IsMajor": false,
           "IncreasesThisLevel": 0
         }
-
       ]
     },
     {
@@ -117,7 +115,6 @@
       "SkillIncreases": 0,
       "ExpectedIncrease": 0,
       "Skills": [
-
         {
           "Name": "Athletics",
           "Level": 20,
@@ -136,7 +133,6 @@
           "IsMajor": false,
           "IncreasesThisLevel": 0
         }
-
       ]
     },
     {
@@ -163,11 +159,9 @@
           "IsMajor": false,
           "IncreasesThisLevel": 0
         }
-
       ]
     },
     {
-
       "Name": "Personality",
       "Level": 50,
       "SkillIncreases": 0,
@@ -191,17 +185,14 @@
           "IsMajor": false,
           "IncreasesThisLevel": 0
         }
-
       ]
     },
     {
-
       "Name": "Luck",
       "Level": 50,
       "ExpectedIncrease": 0,
       "Skills": [
       ]
     }
-
   ]
 }
