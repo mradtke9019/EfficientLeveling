@@ -14,7 +14,7 @@
         {
           "Name": "Blade",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         },
         {

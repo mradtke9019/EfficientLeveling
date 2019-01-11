@@ -16,7 +16,7 @@ namespace EfficientLeveling
         [STAThread]
         static void Main()
         {
-            Player player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(@"C:\Users\mradt\source\repos\EfficientLeveling\EfficientLeveling\samplePlayer.json"));
+            //Player player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(@"samplePlayer.json"));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Window());

@@ -14,7 +14,8 @@ namespace EfficientLeveling
 {
     public partial class Window : Form
     {
-        private Player player { get; set; }
+        private static Player player { get; set; }
+
         public Window()
         {
             InitializeComponent();
@@ -26,17 +27,26 @@ namespace EfficientLeveling
             this.Close();
         }
 
-        private void show(Player player)
+        private void Reset()
+        {
+            Attributes.DataSource = null;
+            CanLevelUp.ResetText();
+            Skills.DataSource = null;
+            ExpectedIncrease.Text = "";
+            Level.ResetText();
+            PlayerName.ResetText();
+
+            return;
+        }
+
+        private void ShowData()
         {
             if(player == null)
             {
-                Attributes.ResetText();
-                CanLevelUp.ResetText();
-                ExpectedIncrease.Text = "";
-                Level.ResetText();
-                PlayerName.ResetText();
+                Reset();
                 return;
             }
+
             List<string> attributes = new List<string>();
             var expectedIncreases = new List<string>();
             foreach (var attribute in player.Attributes)
@@ -57,6 +67,20 @@ namespace EfficientLeveling
                 CanLevelUp.Text = "+++++++";
             else
                 CanLevelUp.Text = "-------";
+
+            List<string> skills = new List<string>();
+            foreach (var attribute in player.Attributes)
+                foreach (var skill in attribute.Skills)
+                {
+                    {
+                        var mod = "";
+                        if (skill.IsMajor)
+                            mod = "+";
+                        skills.Add(skill.Name + " " + skill.Level + " " + mod);
+                    }
+                }
+
+            Skills.DataSource = skills;
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -66,8 +90,14 @@ namespace EfficientLeveling
             // When the ok is selected, load what is selected into the picture loader
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                show(JsonConvert.DeserializeObject<Player>(File.ReadAllText((openFileDialog1.FileName))));
+                Set(JsonConvert.DeserializeObject<Player>(File.ReadAllText((openFileDialog1.FileName))));
+                ShowData();
             }
+        }
+
+        private void Set(Player newPlayer)
+        {
+            player = newPlayer;
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -75,7 +105,7 @@ namespace EfficientLeveling
             // clear the image when this button is pressed
             //pictureBox1.Image = null;
             player = null;
-            show(player);
+            Reset();
         }
 
         private void backgroundButton_Click(object sender, EventArgs e)
@@ -84,18 +114,6 @@ namespace EfficientLeveling
             {
                 //pictureBox1.BackColor = colorDialog1.Color;
             }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            // If the user selects the Stretch check box, 
-            // change the PictureBox's
-            // SizeMode property to "Stretch". If the user clears 
-            // the check box, change it to "Normal".
-            //if (checkBox1.Checked)
-            //    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            //else
-            //    pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -111,6 +129,92 @@ namespace EfficientLeveling
         private void MajorSkillIncreases_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SetExpectedIncrease()
+        {
+
+
+            foreach (var attribute in player.Attributes)
+            {
+                int sum = 0;
+                foreach (var skill in attribute.Skills)
+                {
+                    sum += skill.IncreasesThisLevel;
+                }
+                if (sum == 0)
+                    attribute.ExpectedIncrease = 1;
+                else if (sum <= 4)
+                    attribute.ExpectedIncrease = 2;
+                else if (sum <= 7)
+                    attribute.ExpectedIncrease = 3;
+                else if (sum <= 9)
+                    attribute.ExpectedIncrease = 4;
+                else if (sum >= 10)
+                    attribute.ExpectedIncrease = 5;
+            }
+
+        }
+
+
+        private void LevelSkill_Click(object sender, EventArgs e)
+        {
+            if (player == null)
+            {
+                //MessageBox.Show("No skill selected");
+                return;
+            }
+            foreach (var attribute in player.Attributes)
+                foreach (var skill in attribute.Skills)
+                {
+                    if (Skills.SelectedItem.ToString().Contains(skill.Name))
+                    {
+                        skill.IncreasesThisLevel++;
+                        attribute.SkillIncreases++;
+                        skill.Level++;
+                        if (skill.IsMajor)
+                        {
+                            player.MajorSkillIncreases++;
+                        }
+                        else
+                            player.MinorSkillIncreases++;
+                    }
+                    
+                }
+            if (player.MajorSkillIncreases < 10)
+                player.CanLevelUp = false;
+            else
+                player.CanLevelUp = true;
+            SetExpectedIncrease();
+            ShowData();
+        }
+
+
+
+        private void LevelUp_Click(object sender, EventArgs e)
+        {
+            //TODO Alter code to only level up selected attributes
+            if(player == null)
+                MessageBox.Show("No player data loaded");
+            else if (!player.CanLevelUp)
+                MessageBox.Show("Player cannot level up");
+            else
+            {
+                foreach (var attribute in player.Attributes)
+                {
+                    attribute.Level += attribute.ExpectedIncrease;
+                    attribute.ExpectedIncrease = 0;
+                    foreach (var skill in attribute.Skills)
+                    {
+                        skill.IncreasesThisLevel = 0;
+                    }
+                }
+                player.Level++;
+                player.CanLevelUp = false;
+                player.MajorSkillIncreases = 0;
+            }
+
+            ShowData();
         }
     }
 }

@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.showPlayer = new System.Windows.Forms.Button();
+            this.saveStats = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.Attributes = new System.Windows.Forms.ListBox();
@@ -39,46 +40,56 @@
             this.PlayerName = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.MajorSkillIncreases = new System.Windows.Forms.Label();
+            this.MinorSkillIncreases = new System.Windows.Forms.Label();
             this.ExpectedIncrease = new System.Windows.Forms.ListBox();
             this.CanLevelUp = new System.Windows.Forms.Label();
-            this.MajorSkillIncreases = new System.Windows.Forms.Label();
-            this.saveStats = new System.Windows.Forms.Button();
-            this.MinorSkillIncreases = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.AttributeHeader = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.Skills = new System.Windows.Forms.ListBox();
+            this.SkillLevel = new System.Windows.Forms.ListBox();
+            this.LevelSkill = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.LevelUp = new System.Windows.Forms.Button();
+            this.tableLayoutPanelMain.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelMain
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.46739F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.90761F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.625F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Attributes, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ExpectedIncrease, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.CanLevelUp, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel4, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.797101F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.43271F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 483);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tableLayoutPanelMain.ColumnCount = 3;
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.46739F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.90761F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.625F));
+            this.tableLayoutPanelMain.Controls.Add(this.flowLayoutPanel1, 2, 3);
+            this.tableLayoutPanelMain.Controls.Add(this.Attributes, 0, 2);
+            this.tableLayoutPanelMain.Controls.Add(this.flowLayoutPanel2, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.flowLayoutPanel3, 2, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.ExpectedIncrease, 1, 2);
+            this.tableLayoutPanelMain.Controls.Add(this.CanLevelUp, 1, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.flowLayoutPanel4, 0, 1);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanel2, 2, 2);
+            this.tableLayoutPanelMain.Controls.Add(this.LevelSkill, 1, 3);
+            this.tableLayoutPanelMain.Controls.Add(this.flowLayoutPanel5, 0, 3);
+            this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
+            this.tableLayoutPanelMain.RowCount = 4;
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.797101F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.43271F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(736, 483);
+            this.tableLayoutPanelMain.TabIndex = 0;
+            this.tableLayoutPanelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -86,6 +97,7 @@
             this.flowLayoutPanel1.Controls.Add(this.saveStats);
             this.flowLayoutPanel1.Controls.Add(this.clearButton);
             this.flowLayoutPanel1.Controls.Add(this.closeButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(255, 445);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(478, 35);
@@ -94,18 +106,28 @@
             // showPlayer
             // 
             this.showPlayer.AutoSize = true;
+            this.showPlayer.Dock = System.Windows.Forms.DockStyle.Left;
             this.showPlayer.Location = new System.Drawing.Point(3, 3);
             this.showPlayer.Name = "showPlayer";
-            this.showPlayer.Size = new System.Drawing.Size(123, 23);
+            this.showPlayer.Size = new System.Drawing.Size(94, 23);
             this.showPlayer.TabIndex = 0;
             this.showPlayer.Text = "Load stats";
             this.showPlayer.UseVisualStyleBackColor = true;
             this.showPlayer.Click += new System.EventHandler(this.showButton_Click);
             // 
+            // saveStats
+            // 
+            this.saveStats.Location = new System.Drawing.Point(103, 3);
+            this.saveStats.Name = "saveStats";
+            this.saveStats.Size = new System.Drawing.Size(103, 23);
+            this.saveStats.TabIndex = 4;
+            this.saveStats.Text = "Save stats";
+            this.saveStats.UseVisualStyleBackColor = true;
+            // 
             // clearButton
             // 
             this.clearButton.AutoSize = true;
-            this.clearButton.Location = new System.Drawing.Point(241, 3);
+            this.clearButton.Location = new System.Drawing.Point(212, 3);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(79, 23);
             this.clearButton.TabIndex = 1;
@@ -116,9 +138,9 @@
             // closeButton
             // 
             this.closeButton.AutoSize = true;
-            this.closeButton.Location = new System.Drawing.Point(326, 3);
+            this.closeButton.Location = new System.Drawing.Point(297, 3);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(97, 23);
+            this.closeButton.Size = new System.Drawing.Size(101, 23);
             this.closeButton.TabIndex = 3;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
@@ -181,11 +203,27 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(478, 34);
             this.flowLayoutPanel3.TabIndex = 5;
             // 
-            // openFileDialog1
+            // MajorSkillIncreases
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "JSON Files (*.json)|*.json|All files (*.*)|*.*  ";
-            this.openFileDialog1.Title = "Select a picture file";
+            this.MajorSkillIncreases.AutoSize = true;
+            this.MajorSkillIncreases.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MajorSkillIncreases.Location = new System.Drawing.Point(3, 0);
+            this.MajorSkillIncreases.Name = "MajorSkillIncreases";
+            this.MajorSkillIncreases.Size = new System.Drawing.Size(67, 31);
+            this.MajorSkillIncreases.TabIndex = 0;
+            this.MajorSkillIncreases.Text = "?/10";
+            this.MajorSkillIncreases.Click += new System.EventHandler(this.MajorSkillIncreases_Click);
+            // 
+            // MinorSkillIncreases
+            // 
+            this.MinorSkillIncreases.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.MinorSkillIncreases.AutoSize = true;
+            this.MinorSkillIncreases.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinorSkillIncreases.Location = new System.Drawing.Point(76, 0);
+            this.MinorSkillIncreases.Name = "MinorSkillIncreases";
+            this.MinorSkillIncreases.Size = new System.Drawing.Size(67, 31);
+            this.MinorSkillIncreases.TabIndex = 1;
+            this.MinorSkillIncreases.Text = "?/20";
             // 
             // ExpectedIncrease
             // 
@@ -211,37 +249,6 @@
             this.CanLevelUp.Text = "levelUp?";
             this.CanLevelUp.Click += new System.EventHandler(this.label1_Click);
             // 
-            // MajorSkillIncreases
-            // 
-            this.MajorSkillIncreases.AutoSize = true;
-            this.MajorSkillIncreases.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MajorSkillIncreases.Location = new System.Drawing.Point(3, 0);
-            this.MajorSkillIncreases.Name = "MajorSkillIncreases";
-            this.MajorSkillIncreases.Size = new System.Drawing.Size(67, 31);
-            this.MajorSkillIncreases.TabIndex = 0;
-            this.MajorSkillIncreases.Text = "?/10";
-            this.MajorSkillIncreases.Click += new System.EventHandler(this.MajorSkillIncreases_Click);
-            // 
-            // saveStats
-            // 
-            this.saveStats.Location = new System.Drawing.Point(132, 3);
-            this.saveStats.Name = "saveStats";
-            this.saveStats.Size = new System.Drawing.Size(103, 23);
-            this.saveStats.TabIndex = 4;
-            this.saveStats.Text = "Save stats";
-            this.saveStats.UseVisualStyleBackColor = true;
-            // 
-            // MinorSkillIncreases
-            // 
-            this.MinorSkillIncreases.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MinorSkillIncreases.AutoSize = true;
-            this.MinorSkillIncreases.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinorSkillIncreases.Location = new System.Drawing.Point(76, 0);
-            this.MinorSkillIncreases.Name = "MinorSkillIncreases";
-            this.MinorSkillIncreases.Size = new System.Drawing.Size(67, 31);
-            this.MinorSkillIncreases.TabIndex = 1;
-            this.MinorSkillIncreases.Text = "?/20";
-            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.AutoSize = true;
@@ -264,18 +271,94 @@
             this.AttributeHeader.Text = "Attributes";
             this.AttributeHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.Skills, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SkillLevel, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(255, 71);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(478, 368);
+            this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // Skills
+            // 
+            this.Skills.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Skills.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Skills.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Skills.FormattingEnabled = true;
+            this.Skills.ItemHeight = 20;
+            this.Skills.Location = new System.Drawing.Point(3, 3);
+            this.Skills.Name = "Skills";
+            this.Skills.Size = new System.Drawing.Size(233, 362);
+            this.Skills.TabIndex = 0;
+            // 
+            // SkillLevel
+            // 
+            this.SkillLevel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SkillLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SkillLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SkillLevel.FormattingEnabled = true;
+            this.SkillLevel.ItemHeight = 20;
+            this.SkillLevel.Location = new System.Drawing.Point(242, 3);
+            this.SkillLevel.Name = "SkillLevel";
+            this.SkillLevel.Size = new System.Drawing.Size(233, 362);
+            this.SkillLevel.TabIndex = 1;
+            // 
+            // LevelSkill
+            // 
+            this.LevelSkill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LevelSkill.Location = new System.Drawing.Point(160, 445);
+            this.LevelSkill.Name = "LevelSkill";
+            this.LevelSkill.Size = new System.Drawing.Size(89, 35);
+            this.LevelSkill.TabIndex = 10;
+            this.LevelSkill.Text = "Level Skill";
+            this.LevelSkill.UseVisualStyleBackColor = true;
+            this.LevelSkill.Click += new System.EventHandler(this.LevelSkill_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "JSON Files (*.json)|*.json|All files (*.*)|*.*  ";
+            this.openFileDialog1.Title = "Select a picture file";
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.LevelUp);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 445);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(151, 35);
+            this.flowLayoutPanel5.TabIndex = 11;
+            // 
+            // LevelUp
+            // 
+            this.LevelUp.Location = new System.Drawing.Point(3, 3);
+            this.LevelUp.Name = "LevelUp";
+            this.LevelUp.Size = new System.Drawing.Size(68, 23);
+            this.LevelUp.TabIndex = 0;
+            this.LevelUp.Text = "Level Up";
+            this.LevelUp.UseVisualStyleBackColor = true;
+            this.LevelUp.Click += new System.EventHandler(this.LevelUp_Click);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 483);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Window";
             this.Text = "Window";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanelMain.ResumeLayout(false);
+            this.tableLayoutPanelMain.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -284,19 +367,19 @@
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button showPlayer;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ListBox Attributes;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label PlayerName;
@@ -309,5 +392,13 @@
         private System.Windows.Forms.Label MinorSkillIncreases;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label AttributeHeader;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ListBox Skills;
+        private System.Windows.Forms.Button LevelSkill;
+        private System.Windows.Forms.ListBox SkillLevel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Button LevelUp;
     }
 }
