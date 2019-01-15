@@ -15,6 +15,7 @@ namespace EfficientLeveling
     public partial class Window : Form
     {
         private static Player player { get; set; }
+        private static List<string> chosenAttributes { get; set; }
 
         public Window()
         {
@@ -33,6 +34,8 @@ namespace EfficientLeveling
             CanLevelUp.ResetText();
             Skills.DataSource = null;
             ExpectedIncrease.Text = "";
+            AttributesChosen.ResetText();
+            AttributesChosen.DataSource = null;
             Level.ResetText();
             PlayerName.ResetText();
 
@@ -46,7 +49,7 @@ namespace EfficientLeveling
                 Reset();
                 return;
             }
-
+            SetExpectedIncrease();
             List<string> attributes = new List<string>();
             var expectedIncreases = new List<string>();
             foreach (var attribute in player.Attributes)
@@ -64,9 +67,9 @@ namespace EfficientLeveling
             Level.Text = player.Level.ToString();
             ExpectedIncrease.DataSource = expectedIncreases;
             if (player.CanLevelUp)
-                CanLevelUp.Text = "+++++++";
+                CanLevelUp.Text = "Level";
             else
-                CanLevelUp.Text = "-------";
+                CanLevelUp.Text = "CantLevel";
 
             List<string> skills = new List<string>();
             foreach (var attribute in player.Attributes)
@@ -76,9 +79,21 @@ namespace EfficientLeveling
                         var mod = "";
                         if (skill.IsMajor)
                             mod = "+";
-                        skills.Add(skill.Name + " " + skill.Level + " " + mod);
+                        skills.Add(skill.Level + " " + skill.Name + " " + mod + "\t(" + attribute.Name + ")");
                     }
                 }
+            MajorSkillIncreases.Text = player.MajorSkillIncreases + "/10";
+            MinorSkillIncreases.Text = player.MinorSkillIncreases + "/20";
+
+
+            List<string> attrChTxt = new List<string>();
+            if (chosenAttributes == null)
+                chosenAttributes = new List<string>();
+            for (int i = 0; i < chosenAttributes.Count; i++)
+                attrChTxt.Add(chosenAttributes.ElementAt(i));
+
+            if(attrChTxt.Count > 0)
+                AttributesChosen.DataSource = attrChTxt;
 
             Skills.DataSource = skills;
         }
@@ -173,9 +188,7 @@ namespace EfficientLeveling
                         attribute.SkillIncreases++;
                         skill.Level++;
                         if (skill.IsMajor)
-                        {
                             player.MajorSkillIncreases++;
-                        }
                         else
                             player.MinorSkillIncreases++;
                     }
@@ -198,22 +211,74 @@ namespace EfficientLeveling
                 MessageBox.Show("No player data loaded");
             else if (!player.CanLevelUp)
                 MessageBox.Show("Player cannot level up");
+            else if(chosenAttributes.Count != 3)
+            {
+                MessageBox.Show("3 attributes not chosen");
+                return;
+            }
             else
             {
                 foreach (var attribute in player.Attributes)
                 {
-                    attribute.Level += attribute.ExpectedIncrease;
-                    attribute.ExpectedIncrease = 0;
-                    foreach (var skill in attribute.Skills)
+                    foreach (var selectedAttribute in chosenAttributes)
                     {
-                        skill.IncreasesThisLevel = 0;
+                        if (selectedAttribute.ToString().Contains(attribute.Name))
+                        {
+                            attribute.Level += attribute.ExpectedIncrease;
+                            attribute.ExpectedIncrease = 1;
+                            foreach (var skill in attribute.Skills)
+                            {
+                                skill.IncreasesThisLevel = 0;
+                            }
+                        }
                     }
                 }
                 player.Level++;
                 player.CanLevelUp = false;
                 player.MajorSkillIncreases = 0;
+                player.MinorSkillIncreases = 0;
             }
 
+            ShowData();
+        }
+
+        private void saveStats_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var outP = JsonConvert.SerializeObject(player);
+
+            saveFileDialog.Filter = "json files (*.JSON)|*.json";
+            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.RestoreDirectory = true;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(saveFileDialog.FileName, outP);
+            }
+        }
+
+        private void SelectAttribute_Click(object sender, EventArgs e)
+        {
+            bool alreadyExists = false;
+            if (chosenAttributes == null)
+                chosenAttributes = new List<string>();
+
+            for (int i = 0; i < chosenAttributes.Count; i++)
+                if (Attributes.SelectedItem.ToString().Contains(chosenAttributes.ElementAt(i)))
+                {
+                    alreadyExists = true;
+                    break;
+                }
+
+
+
+            if (!alreadyExists && Attributes.SelectedItem != null)
+                if (chosenAttributes.Count < 3)
+                    chosenAttributes.Add(Attributes.SelectedItem.ToString().Split(' ')[1]);
+                else {
+                    chosenAttributes.RemoveAt(2);
+                    chosenAttributes.Insert(0,Attributes.SelectedItem.ToString().Split(' ')[1]);
+                }
             ShowData();
         }
     }

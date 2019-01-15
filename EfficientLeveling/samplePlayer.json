@@ -40,7 +40,7 @@
         {
           "Name": "Conjuration",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         },
         {
@@ -78,7 +78,7 @@
         {
           "Name": "Restoration",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         }
       ]
@@ -98,7 +98,7 @@
         {
           "Name": "Sneak",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         },
         {
@@ -124,7 +124,7 @@
         {
           "Name": "Acrobatics",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         },
         {
@@ -156,7 +156,7 @@
         {
           "Name": "Heavy Armor",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         }
       ]
@@ -182,7 +182,7 @@
         {
           "Name": "Illusion",
           "Level": 20,
-          "IsMajor": false,
+          "IsMajor": true,
           "IncreasesThisLevel": 0
         }
       ]
