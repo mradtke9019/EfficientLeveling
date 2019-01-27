@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,19 +14,85 @@ using System.Windows.Forms;
 
 namespace EfficientLeveling
 {
+
     public partial class Window : Form
     {
         private static Player player { get; set; }
         private static List<string> chosenAttributes { get; set; }
 
+        public DiscordRpcClient client;
+
+        //Called when your application first starts.
+        //For example, just before your main loop, on OnEnable for unity.
+        void Initialize()
+        {
+            /*
+            Create a discord client
+            NOTE: 	If you are using Unity3D, you must use the full constructor and define
+                     the pipe connection as DiscordRPC.IO.NativeNamedPipeClient
+            */
+            client = new DiscordRpcClient("538566172270919710");
+
+            //Set the logger
+            client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+
+            //Subscribe to events
+            client.OnReady += (sender, e) =>
+            {
+                Console.WriteLine("Received Ready from user {0}", e.User.Username);
+            };
+
+            client.OnPresenceUpdate += (sender, e) =>
+            {
+                Console.WriteLine("Received Update! {0}", e.Presence);
+            };
+
+            //Connect to the RPC
+            client.Initialize();
+
+            //Set the rich presence
+            //Call this as many times as you want and anywhere in your code.
+            client.SetPresence(new RichPresence()
+            {
+                Details = "Oblivion",
+                State = "No character chosen",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "largeimage",
+                    LargeImageText = "Efficient Leveling",
+                    SmallImageKey = "small"
+                }
+            });
+        }
+
+        //The main loop of your application, or some sort of timer. Literally the Update function in Unity3D
+        void Update(string State)
+        {
+            //Invoke all the events, such as OnPresenceUpdate
+            client.SetPresence(new RichPresence()
+            {
+                Details = "Oblivion",
+                State = State,
+                Assets = new Assets()
+                {
+                    LargeImageKey = "largeimage",
+                    LargeImageText = "Efficient Leveling",
+                    SmallImageKey = "small"
+                }
+            });
+            client.Invoke();
+        }
+
         public Window()
         {
+            Initialize();
             InitializeComponent();
         }
 
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            client.Dispose();
             this.Close();
         }
 
@@ -38,7 +106,7 @@ namespace EfficientLeveling
             AttributesChosen.DataSource = null;
             Level.ResetText();
             PlayerName.ResetText();
-
+            Update("No Character Chosen");
             return;
         }
 
@@ -96,6 +164,7 @@ namespace EfficientLeveling
                 AttributesChosen.DataSource = attrChTxt;
 
             Skills.DataSource = skills;
+            Update(player.Name + " level " + player.Level);
         }
 
         private void showButton_Click(object sender, EventArgs e)
@@ -281,5 +350,12 @@ namespace EfficientLeveling
                 }
             ShowData();
         }
+
+        private void Window_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

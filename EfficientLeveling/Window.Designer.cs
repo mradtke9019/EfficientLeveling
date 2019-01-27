@@ -372,6 +372,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Window";
             this.Text = "Window";
+            this.Load += new System.EventHandler(this.Window_Load);
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
